@@ -10,11 +10,10 @@
                     <div class="row breadcrumbs-top">
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="#">الرئيسية </a>
+                                <li class="breadcrumb-item"><a
+                                        href="{{route('admin.dashboard')}}">{{__('admin/shipping.Home')}} </a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="#"> أللغات </a>
-                                </li>
-                                <li class="breadcrumb-item active">تعديل اللغة
+                                <li class="breadcrumb-item active">{{__('admin/shipping.EditShippingMethod')}}
                                 </li>
                             </ol>
                         </div>
@@ -28,7 +27,8 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title" id="basic-layout-form"> تعديل اللغة </h4>
+                                    <h4 class="card-title"
+                                        id="basic-layout-form"> {{__('admin/shipping.EditShippingMethod')}} </h4>
                                     <a class="heading-elements-toggle"><i
                                             class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
@@ -44,97 +44,76 @@
                                 @include('admin.includes.alerts.errors')
                                 <div class="card-content collapse show">
                                     <div class="card-body">
-                                        <form class="form" action="#" method="POST"
+                                        <form class="form"
+                                              action="{{route('update.shipping.method',['id'=>$shippingMethod->id])}}"
+                                              method="POST"
                                               enctype="multipart/form-data">
                                             @csrf
+
+                                            <input type="hidden" name="id" value="{{$shippingMethod->id}}">
+
                                             <div class="form-body">
-                                                <h4 class="form-section"><i class="ft-home"></i> بيانات اللغة </h4>
-
+                                                <h4 class="form-section"><i
+                                                        class="ft-home"></i> {{__('admin/shipping.Edit')}} {{$shippingMethod->value}} </h4>
                                                 <div class="row">
+
                                                     <div class="col-md-6">
-                                                        <div class="form-group mt-1">
-                                                            <input type="checkbox" name="active"
-                                                                   id="switcheryColor4"
-                                                                   value="1"
-                                                                   class="switchery" data-color="success"
-
-                                                            />
-                                                            <label for="switcheryColor4"
-                                                                   class="card-title ml-1">الحالة </label>
-
-                                                            @error('active')
-                                                            <span class="text-danger">{{ $message }} </span>
+                                                        <div class="form-group">
+                                                            <label
+                                                                for="value">  {{__('admin/shipping.Name')}} </label>
+                                                            <input type="text" value="{{$shippingMethod->value}}"
+                                                                   id="value"
+                                                                   class="form-control"
+                                                                   name="value">
+                                                            @error('value')
+                                                            <span class="text-danger">{{$message}} </span>
                                                             @enderror
                                                         </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="projectinput1"> اسم اللغة </label>
-                                                                <input type="text" value="#" id="name"
-                                                                       class="form-control"
-                                                                       placeholder="ادخل اسم اللغة  "
-                                                                       name="name">
-                                                                @error('name')
-                                                                <span class="text-danger">{{$message}} </span>
-                                                                @enderror
-                                                            </div>
 
                                                     </div>
 
 
-                                                </div>
-                                                <div class="row">
-
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="projectinput1"> اسم اللغة </label>
-                                                                <input type="text" value="#" id="name"
-                                                                       class="form-control"
-                                                                       placeholder="ادخل اسم اللغة  "
-                                                                       name="name">
-                                                                @error('name')
-                                                                <span class="text-danger">{{$message}} </span>
-                                                                @enderror
-                                                            </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label
+                                                                for="plain_value">  {{__('admin/shipping.ShippingValue')}} </label>
+                                                            <input type="number" value="{{$shippingMethod->plain_value}}" id="plain_value"
+                                                                   class="form-control"
+                                                                   name="plain_value">
+                                                            @error('plain_value')
+                                                            <span class="text-danger">{{$message}} </span>
+                                                            @enderror
+                                                        </div>
 
                                                     </div>
-
-
                                                 </div>
 
 
+                                            </div>
 
 
-
+                                            <div class="form-actions">
+                                                <button type="button" class="btn btn-warning mr-1"
+                                                        onclick="history.back();">
+                                                    <i class="ft-x"></i>{{__('admin/shipping.back')}}
+                                                </button>
+                                                <button type="submit" class="btn btn-primary">
+                                                    <i class="la la-check-square-o"></i>{{__('admin/shipping.update')}}
+                                                </button>
+                                            </div>
+                                        </form>
                                     </div>
-
-
-                                    <div class="form-actions">
-                                        <button type="button" class="btn btn-warning mr-1"
-                                                onclick="history.back();">
-                                            <i class="ft-x"></i> تراجع
-                                        </button>
-                                        <button type="submit" class="btn btn-primary">
-                                            <i class="la la-check-square-o"></i> تحديث
-                                        </button>
-                                    </div>
-                                    </form>
                                 </div>
-                            </div>
 
+                            </div>
                         </div>
                     </div>
+
+
+                </section>
+                <!-- // Basic form layout section end -->
             </div>
-
-
-
-    </section>
-    <!-- // Basic form layout section end -->
-    </div>
-    </div>
+        </div>
     </div>
 @endsection
 
