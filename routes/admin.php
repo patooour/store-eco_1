@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,16 +13,35 @@ use Illuminate\Support\Facades\Route;
 | contains the "admin" middleware group. Now create something great!
 |
 */
+Route::group(
+    [
+        'prefix' => LaravelLocalization::setLocale(),
+        'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+    ], function(){
 
-Route::group(['namespace'=>'Admin','middleware'=>'auth:admin'], function (){
-    Route::get('/','dashboardController@index')->name('admin.dashboard');
+//        ######################### admin auth ###################################
+    Route::group(['namespace'=>'Admin','middleware'=>'auth:admin' , 'prefix'=>'admin'], function (){
+        Route::get('/','dashboardController@index')->name('admin.dashboard');
+
+        Route::group(['prefix'=>'settings'],function (){
+            Route::get('shipping-method/{type}','settingController@editShipping')->name('edit.shipping.method');
+        });
+
+    });
+
+
+//    ######################### admin guest ###################################
+    Route::group(['namespace'=>'Admin','middleware'=>'guest:admin','prefix'=>'admin'],function (){
+        Route::get('/login','loginController@login') -> name('admin.login');
+        Route::post('/doLogin','loginController@doLogin') -> name('doLogin');
+
+    });
 
 });
 
-Route::group(['namespace'=>'Admin','middleware'=>'guest:admin'],function (){
-    Route::get('/login','loginController@login') -> name('admin.login');
-    Route::post('/doLogin','loginController@doLogin') -> name('doLogin');
 
-});
+
+
+
 
 
