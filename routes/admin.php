@@ -22,6 +22,7 @@ Route::group(
 //        ######################### admin auth ###################################
     Route::group(['namespace'=>'Admin','middleware'=>'auth:admin' , 'prefix'=>'admin'], function (){
         Route::get('/','dashboardController@index')->name('admin.dashboard');
+        Route::get('logout','loginController@logout')->name('admin.logout');
 
         Route::group(['prefix'=>'settings'],function (){
             Route::get('shipping-method/{type}','settingController@editShipping')->name('edit.shipping.method');
