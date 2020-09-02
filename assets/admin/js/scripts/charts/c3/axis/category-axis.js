@@ -8,7 +8,7 @@
     Author URL: http://www.themeforest.net/user/pixinvent
 ==========================================================================================*/
 
-// Category Axis Chart
+// category Axis Chart
 // ------------------------------
 $(window).on("load", function(){
 

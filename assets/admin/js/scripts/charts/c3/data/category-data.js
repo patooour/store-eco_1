@@ -8,7 +8,7 @@
     Author URL: http://www.themeforest.net/user/pixinvent
 ==========================================================================================*/
 
-// Category Data Chart
+// category Data Chart
 // ------------------------------
 $(window).on("load", function(){
 
