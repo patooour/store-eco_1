@@ -8,7 +8,7 @@
     Author URL: http://www.themeforest.net/user/pixinvent
 ==========================================================================================*/
 
-// Category scatter chart
+// category scatter chart
 // ------------------------------
 
 $(window).on("load", function(){
@@ -96,7 +96,7 @@ $(window).on("load", function(){
                         type : 'category',
                         axisLabel: {
                             formatter : function(v) {
-                                return 'Category' + v
+                                return 'category' + v
                             }
                         },
                         data : function (){
@@ -128,9 +128,9 @@ $(window).on("load", function(){
                         tooltip : {
                             trigger: 'item',
                             formatter : function (params) {
-                                return params.seriesName + ' （'  + 'Category' + params.value[0] + '）<br/>'
-                                       + params.value[1] + ', ' 
-                                       + params.value[2]; 
+                                return params.seriesName + ' （'  + 'category' + params.value[0] + '）<br/>'
+                                       + params.value[1] + ', '
+                                       + params.value[2];
                             },
                             axisPointer:{
                                 show: true
@@ -159,9 +159,9 @@ $(window).on("load", function(){
                         tooltip : {
                             trigger: 'item',
                             formatter : function (params) {
-                                return params.seriesName + ' （'  + 'Category' + params.value[0] + '）<br/>'
-                                       + params.value[1] + ', ' 
-                                       + params.value[2]; 
+                                return params.seriesName + ' （'  + 'category' + params.value[0] + '）<br/>'
+                                       + params.value[1] + ', '
+                                       + params.value[2];
                             },
                             axisPointer:{
                                 show: true

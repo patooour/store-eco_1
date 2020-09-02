@@ -54,6 +54,12 @@ return [
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
         ],
+        'profile' => [
+            'driver' => 'local',
+            'root' => base_path() . '/assets/images/admin/profile',
+            'url' => env('APP_URL').'/public/',
+            'visibility' => 'public',
+        ],
 
         's3' => [
             'driver' => 's3',

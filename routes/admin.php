@@ -29,6 +29,11 @@ Route::group(
             Route::post('shipping-method/{id}','settingController@updateShipping')->name('update.shipping.method');
         });
 
+        Route::group(['prefix'=>'profile'],function (){
+            Route::get('edit','profileController@editProfile')->name('admin.edit.profile');
+            Route::post('update','profileController@updateProfile')->name('admin.update.profile');
+        });
+
     });
 
 
