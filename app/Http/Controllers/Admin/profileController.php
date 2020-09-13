@@ -32,14 +32,17 @@ class profileController extends Controller
             DB::beginTransaction();
             $filename ="";
             if ($request->has('photo')){
-                $deleteImage = Str::after($admin->image , 'localhost/');
-//                $deleteImage = base_path('assets/'.$deleteImage);
-                unlink($deleteImage);
-
-                $filename = saveImage('profile',$request->photo);
+//                  $deleteImage = Str::after($admin->image , 'localhost/');
+////                $deleteImage = base_path('assets/'.$deleteImage);
+//                   unlink($deleteImage);
+                $filename = saveImage('admin/profile',$request->photo);
                 $admin->update(['image'=>$filename]);
             }
-            if ($request->has('password')) {
+            if ( $request->password == null){
+               unset($request['password']);
+            }
+
+            if ($request->has('password') ) {
                 $admin->update(['password'=> bcrypt($request->password)]);
             }
 
@@ -47,8 +50,6 @@ class profileController extends Controller
                 'name'=>$request->get('name'),
                 'email'=>$request->get('email'),
             ]);
-
-
             DB::commit();
             return redirect()->back()->with(['success'=>__('admin/settingControl.updated is success')]);
         }catch (\Exception $ex){

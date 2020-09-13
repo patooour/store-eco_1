@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\category;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,5 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('test',function(){
-   return \App\models\setting::find(13);
+//    $cat = \App\models\category::all();
+    $categories = category::whereNotNull('parent_id')->get();
+
+    $categories-> makevisible(['translations']);
+    return $categories;
 });

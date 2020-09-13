@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use \App\Models\category;
 
-class categoryDatabaseSeeder extends Seeder
+class subCategoryDatabaseSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,6 +12,8 @@ class categoryDatabaseSeeder extends Seeder
      */
     public function run()
     {
-        factory(category::class,15)->create();
+        factory(category::class,10)->create();
     }
+
+
 }
