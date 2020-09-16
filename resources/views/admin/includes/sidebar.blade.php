@@ -2,8 +2,8 @@
     <div class="main-menu-content">
         <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
 
-            <li class="nav-item active"><a href=""><i class="la la-mouse-pointer"></i><span
-                        class="menu-title" data-i18n="nav.add_on_drag_drop.main">الرئيسية </span></a>
+            <li class="nav-item active"><a href="{{route('admin.mainCategories')}}"><i class="la la-mouse-pointer"></i><span
+                        class="menu-title" data-i18n="nav.add_on_drag_drop.main">{{__('admin/sidebar.home')}} </span></a>
             </li>
 
             <li class="nav-item"><a href=""><i class="la la-home"></i>
@@ -22,57 +22,53 @@
                 </ul>
             </li>
 
-
             <li class="nav-item"><a href=""><i class="la la-group"></i>
-                    <span class="menu-title" data-i18n="nav.dash.main">الاقسام الرئيسية  </span>
+                    <span class="menu-title" data-i18n="nav.dash.main">{{__('admin/sidebar.main categories')}}  </span>
                     <span
                         class="badge badge badge-danger badge-pill float-right mr-2">
-
+                         {{\App\Models\category::whereNull('parent_id')->count()}}
                     </span>
                 </a>
                 <ul class="menu-content">
-                    <li class="active"><a class="menu-item" href="/admin/main_categories"
-                          data-i18n="nav.dash.ecommerce"> عرض الكل </a>
+                    <li class="active"><a class="menu-item" href="{{route('admin.mainCategories')}}"
+                          data-i18n="nav.dash.ecommerce"> {{__('admin/sidebar.View all')}} </a>
                     </li>
-                    <li><a class="menu-item" href="#" data-i18n="nav.dash.crypto">أضافة
-                            قسم جديد </a>
+                    <li><a class="menu-item" href="{{route('admin.add.mainCategory')}}" data-i18n="nav.dash.crypto">{{__('admin/sidebar.add main category')}}</a>
                     </li>
                 </ul>
             </li>
-            <li class="nav-item"><a href=""><i class="la la-group"></i>
-                    <span class="menu-title" data-i18n="nav.dash.main">الاقسام الفرعية  </span>
+
+            <li class="nav-item"><a href="#"><i class="la la-group"></i>
+                    <span class="menu-title" data-i18n="nav.dash.main">{{__('admin/sidebar.subCategories')}}  </span>
                     <span
                         class="badge badge badge-danger badge-pill float-right mr-2">
-
+                           {{\App\Models\category::whereNotNull('parent_id')->count()}}
                     </span>
                 </a>
                 <ul class="menu-content">
-                    <li class="active"><a class="menu-item" href="/admin/sub_categories"
-                                          data-i18n="nav.dash.ecommerce"> عرض الكل </a>
+                    <li class="active"><a class="menu-item" href="{{route('admin.subCategories')}}"
+                                          data-i18n="nav.dash.ecommerce">  {{__('admin/sidebar.View all')}} </a>
                     </li>
-                    <li><a class="menu-item" href="#" data-i18n="nav.dash.crypto">أضافة
-                            قسم فرعي جديد </a>
+                    <li><a class="menu-item" href="{{route('admin.add.subCategories')}}" data-i18n="nav.dash.crypto">{{__('admin/sidebar.add sub category')}}</a>
                     </li>
                 </ul>
             </li>
 
             <li class="nav-item"><a href=""><i class="la la-male"></i>
-                    <span class="menu-title" data-i18n="nav.dash.main">المتاجر </span>
+                    <span class="menu-title" data-i18n="nav.dash.main">{{__('admin/sidebar.brands')}} </span>
                     <span
                         class="badge badge badge-success badge-pill float-right mr-2">
-
+                             {{\App\Models\brand::all()->count()}}
                     </span>
                 </a>
                 <ul class="menu-content">
-                    <li class="active"><a class="menu-item" href="#"
-                                          data-i18n="nav.dash.ecommerce"> عرض الكل </a>
+                    <li class="active"><a class="menu-item" href="{{route('admin.brands')}}"
+                                          data-i18n="nav.dash.ecommerce"> {{__('admin/sidebar.View all')}}</a>
                     </li>
-                    <li><a class="menu-item" href="#" data-i18n="nav.dash.crypto">أضافة
-                            متجر </a>
+                    <li><a class="menu-item" href="{{route('admin.add.brands')}}" data-i18n="nav.dash.crypto">{{__('admin/sidebar.add brand')}}</a>
                     </li>
                 </ul>
             </li>
-
 
             <li class="nav-item"><a href=""><i class="la la-male"></i>
                     <span class="menu-title" data-i18n="nav.dash.main">الطلاب  </span>

@@ -60,6 +60,24 @@ return [
             'url' => env('APP_URL').'/public/',
             'visibility' => 'public',
         ],
+        'mainCategories' => [
+            'driver' => 'local',
+            'root' => base_path() . '/assets/images/admin/mainCategories',
+            'url' => env('APP_URL').'/public/',
+            'visibility' => 'public',
+        ],
+        'subCategories' => [
+            'driver' => 'local',
+            'root' => base_path() . '/assets/images/admin/subCategories',
+            'url' => env('APP_URL').'/public/',
+            'visibility' => 'public',
+        ],
+        'brands' => [
+            'driver' => 'local',
+            'root' => base_path() . '/assets/images/admin/brands',
+            'url' => env('APP_URL').'/public/',
+            'visibility' => 'public',
+        ],
 
         's3' => [
             'driver' => 's3',
