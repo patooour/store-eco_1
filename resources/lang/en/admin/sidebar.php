@@ -13,4 +13,6 @@ return [
     'freeShipping'   =>'Free Shipping',
     'innerShipping'   =>'Local Shipping',
     'outerShipping'   =>'Outer Shipping',
+    'brands'   =>'Brands',
+    'add brand'   =>'Add Brand',
 ];

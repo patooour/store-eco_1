@@ -13,6 +13,9 @@ return [
     'freeShipping'   =>'توصيل مجاني',
     'innerShipping'   =>'توصيل داخلي ',
     'outerShipping'   =>'توصيل خارجي',
+    'brands'   =>'الماركات',
+    'add brand'   =>'اضافة ماركة',
+
 
 
 ];
