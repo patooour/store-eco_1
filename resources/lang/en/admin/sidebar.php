@@ -2,11 +2,10 @@
 
 return [
     'home'=>'Home',
-    'main categories'=>'Main Categories',
+    'main categories'=>'Categories',
     'subCategories'=>'subCategories',
     'View all'=>'View all',
-    'add main category'=>'Add MainCategory',
-    'add sub category'=>'Add SubCategory',
+    'add main category'=>'Add Category',
     'Setting'   =>'Setting',
     'Review'   =>'Review',
     'ShippingMethod'   =>'Shipping Method',
@@ -15,4 +14,6 @@ return [
     'outerShipping'   =>'Outer Shipping',
     'brands'   =>'Brands',
     'add brand'   =>'Add Brand',
+    'tags'   =>'Tags',
+    'add tag'   =>'Add Tag',
 ];

@@ -1,19 +1,19 @@
 @extends('layouts.admin')
 
 
-@section('title',' admin subCategories')
+@section('title',' admin tags')
 @section('content')
     <div class="app-content content">
         <div class="content-wrapper">
             <div class="content-header row">
                 <div class="content-header-left col-md-6 col-12 mb-2">
-                    <h3 class="content-header-title">{{__('admin/subCategories/index.sub categories')}} </h3>
+                    <h3 class="content-header-title">{{__('admin/tags/index.tags')}} </h3>
                     <div class="row breadcrumbs-top">
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">{{__('admin/subCategories/index.home')}}</a>
+                                <li class="breadcrumb-item"><a href="{{route('admin.tags')}}">{{__('admin/tags/index.home')}}</a>
                                 </li>
-                                <li class="breadcrumb-item active">{{__('admin/subCategories/index.sub categories')}}
+                                <li class="breadcrumb-item active">{{__('admin/tags/index.tags')}}
                                 </li>
                             </ol>
                         </div>
@@ -27,7 +27,7 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">{{__('admin/subCategories/index.all sub categories')}} </h4>
+                                    <h4 class="card-title">{{__('admin/tags/index.all tags')}} </h4>
                                     <a class="heading-elements-toggle"><i
                                             class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
@@ -46,53 +46,36 @@
                                 <div class="card-content collapse show">
                                     <div class="card-body card-dashboard">
                                         <table
-                                            class="table display nowrap table-striped table-bordered scroll-horizontal">
+                                            class="table display nowrap table-striped table-bordered ">
                                             <thead>
                                             <tr>
                                                 <th> #</th>
-                                                <th> {{__('admin/subCategories/index.name')}}</th>
-                                                <th>{{__('admin/subCategories/index.slug')}}</th>
-                                                <th>{{__('admin/subCategories/index.main category')}}</th>
-                                                <th>{{__('admin/subCategories/index.image')}}</th>
-                                                <th>{{__('admin/subCategories/index.status')}}</th>
-                                                <th>{{__('admin/subCategories/index.operation')}}</th>
+                                                <th>{{__('admin/tags/index.name')}}</th>
+                                                <th>{{__('admin/tags/index.slug')}}</th>
+                                                <th>{{__('admin/tags/index.operation')}}</th>
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            @isset($categories)
-                                                @foreach($categories as $k=> $category)
+                                            @isset($tags)
+                                                @foreach($tags as $k=> $tag)
 
                                                     <tr>
                                                         <td> {{$k + 1}} </td>
-                                                        <td> {{$category->name}} </td>
-                                                        <td> {{$category->slug}} </td>
-                                                        <td> {{$category->parent->name}} </td>
-                                                        <td><img src="{{$category->image}}"
-                                                                 height="125"
-                                                                 width="75" alt="{{$category->name}}"> </td>
-                                                        <td> {{$category->getActive()}} </td>
-
+                                                        <td> {{$tag->name}} </td>
+                                                        <td> {{$tag->slug}} </td>
                                                         <td>
                                                             <div class="btn-group" role="group"
                                                                  aria-label="Basic example">
-                                                                <a href="{{route('admin.edit.subCategories' , $category->id)}}"
+                                                                <a href="{{route('admin.edit.tags' , $tag->id)}}"
                                                                    class="btn btn-outline-primary ft-edit-2 box-shadow-3 mr-1 mb-1">
 
                                                                 </a>
 
-                                                                <a href="{{route('admin.delete.subCategories' , $category->id)}}"
+                                                                <a href="{{route('admin.delete.tags' , $tag->id)}}"
                                                                    class="btn btn-outline-danger ft-trash-2 box-shadow-3 mr-1 mb-1" >
 
                                                                 </a>
-{{--                                                                <a href="#"--}}
-{{--                                                                   class="btn btn-outline-warning  btn-min-width box-shadow-3 mr-1 mb-1">--}}
-{{--                                                                    @if($category->is_active == '1')--}}
-{{--                                                                        --}}
-{{--                                                                    @else--}}
-{{--                                                                      --}}
 
-{{--                                                                    @endif--}}
-{{--                                                                </a>--}}
 
 
 
@@ -106,7 +89,7 @@
                                             </tbody>
                                         </table>
                                         <div class="justify-content-center d-flex">
-                                            {{$categories -> links()}}
+                                            {{$tags -> links()}}
                                         </div>
                                     </div>
                                 </div>

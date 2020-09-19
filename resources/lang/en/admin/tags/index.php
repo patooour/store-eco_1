@@ -5,11 +5,9 @@ return [
 
 
     'home'=>'Home',
-    'main categories'=>'Main Categories',
-    'main category'=>'main category',
-    'subCategories'=>'subCategories',
-    'all main categories'=>'all main categories',
-    'category is not found'=>'category is not found',
+    'tags'=>'Tags',
+    'all tags'=>'All Tags',
+    'tag is not found'=>'tag is not found',
     'name'=>'name',
     'slug'=>'slug',
     'status'=>'status',

@@ -14,25 +14,34 @@ class mainCategoriesController extends Controller
 {
     public function index()
     {
-        $categories = category::whereNull('parent_id')->orderBy('id','DESC')->paginate(PAGINATION_COUNT);
+        $categories = category::with('parent')->orderBy('id','DESC')->paginate(PAGINATION_COUNT);
         return view('admin.categories.index', compact('categories'));
     }
 
 
     public function create(){
-        return view('admin.categories.add');
+         $categories = category::select('id','parent_id')->orderBy('id','asc')->get();
+        return view('admin.categories.add', compact('categories'));
     }
     public function store(mainCategoriesRequest $request){
         try {
+
             if (!$request->has('is_active')) {
                 $request->request->add(['is_active' => '0']);
             }
+            if ($request['type'] == '1') // this mean that type is main category
+            {
+                $request->request->add(['parent_id' => null]);
+            }
+
             $filename = saveImage('admin/mainCategories', $request['avatar']);
             DB::beginTransaction();
+
             $category = new category();
             $category->slug = $request['slug'];
             $category->is_active = $request['is_active'];
             $category->name = $request->name;
+            $category->parent_id = $request->parent_id;
             $category->image = $filename;
             $category->save();
             DB::commit();
@@ -49,13 +58,13 @@ class mainCategoriesController extends Controller
 
     public function edit($id)
     {
+        $categories = category::select('id','parent_id')->orderBy('id','asc')->get();
         $category = category::find($id);
 
         if (!$category || $category == 'null') {
             return redirect()->route('admin.mainCategories')->with(['error' => __('admin/categories/index.category is not found')]);
         }
-
-        return view('admin.categories.edit', compact('category'));
+        return view('admin.categories.edit', compact('category','categories'));
 
     }
 
@@ -86,9 +95,14 @@ class mainCategoriesController extends Controller
                     'image' => $filename
                 ]);
             }
+            if ($request['type'] == '1') // this mean that type is main category
+            {
+                $request->request->add(['parent_id' => null]);
+            }
             $category->update([
                 'slug' => $request->get('slug'),
                 'is_active' => $request->get('is_active'),
+                'parent_id' => $request->get('parent_id'),
             ]);
 //            translations
             $category->name = $request->name;

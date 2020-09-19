@@ -3,11 +3,10 @@
 return [
 
     'home'=>'الرئيسية',
-    'main categories'=>'الاقسام الرئيسية',
+    'main categories'=>'الاقسام ',
     'subCategories'=>'الاقسام الفرعية',
     'View all'=>'عرض الكل',
-    'add main category'=>'اضافة قسم رئيسي',
-    'add sub category'=>'اضافة قسم فرعي',
+    'add main category'=>'اضافة قسم ',
     'Setting'   =>'الاعدادات',
     'ShippingMethod'   =>'وسائل التوصيل',
     'freeShipping'   =>'توصيل مجاني',
@@ -15,6 +14,8 @@ return [
     'outerShipping'   =>'توصيل خارجي',
     'brands'   =>'الماركات',
     'add brand'   =>'اضافة ماركة',
+    'tags'   =>'العلامات tags',
+    'add tag'   =>'اضافة علامة',
 
 
 

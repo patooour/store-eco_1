@@ -65,7 +65,18 @@ Route::group(
             Route::post('update/{id}','brandController@update')->name('admin.update.brands');
             Route::get('delete/{id}','brandController@destroy')->name('admin.delete.brands');
         });
-        //    ######################### end categories ###################################
+        //    ######################### end brands ###################################
+        //    ######################### start tags ###################################
+        Route::group(['prefix'=>'tags'],function (){
+            Route::get('/','tagController@index')->name('admin.tags');
+            Route::get('create','tagController@create')->name('admin.add.tags');
+            Route::post('store','tagController@store')->name('admin.store.tags');
+            Route::get('edit/{id}','tagController@edit')->name('admin.edit.tags');
+            Route::post('update/{id}','tagController@update')->name('admin.update.tags');
+            Route::get('delete/{id}','tagController@destroy')->name('admin.delete.tags');
+        });
+        //    ######################### end tags ###################################
+
 
     });
 

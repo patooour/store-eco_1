@@ -46,11 +46,12 @@
                                 <div class="card-content collapse show">
                                     <div class="card-body card-dashboard">
                                         <table
-                                            class="table display nowrap table-striped table-bordered scroll-horizontal">
+                                            class="table display nowrap table-striped table-bordered ">
                                             <thead>
                                             <tr>
                                                 <th> #</th>
                                                 <th> {{__('admin/categories/index.name')}}</th>
+                                                <th>{{__('admin/categories/index.main category')}}</th>
                                                 <th>{{__('admin/categories/index.slug')}}</th>
                                                 <th>{{__('admin/categories/index.image')}}</th>
                                                 <th>{{__('admin/categories/index.status')}}</th>
@@ -64,6 +65,7 @@
                                                     <tr>
                                                         <td> {{$k + 1}} </td>
                                                         <td> {{$category->name}} </td>
+                                                        <td> {{$category->parent->name ?? 'null'}} </td>
                                                         <td> {{$category->slug}} </td>
                                                         <td><img src="{{$category->image}}"
                                                                  height="125"

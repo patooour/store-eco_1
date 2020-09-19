@@ -3,6 +3,7 @@
 namespace App\Http\Requests\admin;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class mainCategoriesRequest extends FormRequest
 {
@@ -23,11 +24,19 @@ class mainCategoriesRequest extends FormRequest
      */
     public function rules()
     {
-        return [
+
+        return[
             'name'=>'required',
+            'type'=>'required|in:1,2',
             'slug'=>'required|unique:categories,slug,'.$this->id,
             'avatar'=>'required_without:id|mimes:jpg,jpeg,png',
-
         ];
+//        foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+//        {
+//            $rules += [$localeCode.'.name'  => 'required'];
+//        }
+
+
     }
+
 }
