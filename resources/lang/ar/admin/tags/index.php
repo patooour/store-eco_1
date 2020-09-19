@@ -3,11 +3,10 @@
 return [
 
     'home'=>'الرئيسية',
-    'main categories'=>'الاقسام الرئيسية',
-    'main category'=>'القسم الرئيسي',
-    'subCategories'=>'الاقسام الفرعية',
+    'tags'=>'العلامات Tags',
+    'all tags'=>'كل العلامات Tags',
     'all main categories'=>'كل الاقسام الرئيسية',
-    'category is not found'=>'هذا القسم غير موجود',
+    'tag is not found'=>'هذه العلامة غير موجودة',
     'name'=>'الاسم ',
     'slug'=>'الاسم بالرابط',
     'status'=>'الحالة',

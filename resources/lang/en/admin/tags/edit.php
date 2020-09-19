@@ -2,18 +2,20 @@
 
 return [
 
-
-
     'home'=>'Home',
-    'main categories'=>'Main Categories',
-    'main category'=>'main category',
-    'subCategories'=>'subCategories',
-    'all main categories'=>'all main categories',
-    'category is not found'=>'category is not found',
+    'tags'=>'Tags',
+    'all tags'=>'All Tags',
+    'tag is not found'=>'tag is not found',
+    'edit tag'=>'Edit Tag',
+    'tag data'=>'Tag data',
+    'tag name'=>'Tag name',
     'name'=>'name',
     'slug'=>'slug',
+    'save'=>'save',
+    'back'=>'back',
     'status'=>'status',
     'image'=>'image',
+    'update'=>'update',
     'operation'=>'operation',
     'edit'=>'Edit',
     'delete'=>'Delete',
